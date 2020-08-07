@@ -78,3 +78,7 @@
 
 ## git branch -d [branch]
 - 删除分支
+
+## git push origin [branch]
+- 将分支上传到远程仓库分支
+
