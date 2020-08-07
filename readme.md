@@ -33,3 +33,19 @@
 
 ## git reflog
 1. 查看简单版日志
+
+## git diff [文件名]
+1. 查看文件变更信息
+
+## git reset --hard [版本号] 
+1. 回退到指定版本
+
+## git reset --hard^
+1. 回退到上个版本
+2. git reset --hard^^回退到上上个版本
+
+# 远程仓库
+
+##remote add origin 仓库地址
+1. 把本地仓库与远程仓库关联
+
