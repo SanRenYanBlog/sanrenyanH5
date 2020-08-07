@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+//getter setter
+//类似于给属性提供钩子
+//在获取属性值和设置属性值的时候做一些额外的事情...
+
+//ES5中的getter与setter
+//在对象字面量中书写getter 与 setter
+const obj={
+    _name:'',
+    get name(){
+        return this._name;
+    },
+    set name(val){
+        this._name = val;
+    }
+}
+// obj._name;  //栈内存溢出
+console.log(obj.name);
+// Object.defineProperty 普通用法
+var obj3 = {
+    name:10
+};
+
+Object.defineProperty(obj3,'name',{
+    value:100,  //定义值，此时name的value为100
+    enumerable:true //是否可枚举-可遍历
+})
+console.log(obj3.name); //100
+
+
+// Object.defineProperty setter和getter用法
+var obj2 = {
+    _name:''
+};
+
+Object.defineProperty(obj2,'name',{
+    get:function() {
+        console.log('name被访问');
+        return this._name;
+    },
+    set:function(val) {
+        console.log('name被修改为了'+val);
+        this._name = val;
+    }
+})
+obj2.name = 10;              //name的值被修改为了10
+console.log(obj2.name);     //name的值被访问 10
+
+
+//ES6中的getter 与 setter
+ class Person {
+    constructor(){
+        this._name = '';
+     }
+    get name(){
+        console.log('name被访问啦！');
+        return `我是${this._name}`;
+    }
+    set name(val) {
+        console.log('name被修改啦！现在的name是'+val);
+        this._name = val;
+    }
+ }
+ let person = new Person();
+person.name = '鸽子王';
+console.log(person.name);
+
+</script>
+</body>
+</html>

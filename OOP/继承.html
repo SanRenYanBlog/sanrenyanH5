@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+//继承
+//继承可以让子类获得父类的方法 属性
+//可以扩充 增加新的方法 属性 等
+
+//父类（基类） - 被继承的类
+//子类 - 继承后的类
+
+//extends
+
+class Human{
+    constructor(name,age,sex,hobby){
+         this.name = name;
+         this.age = age;
+         this.sex = sex;
+         this.hobby = hobby;
+    }
+    desc(){
+        const {name,age,sex,hobby} = this;
+        console.log(`我是${name},年龄${age}`);
+    }
+    eat(){
+        console.log('吧唧吧唧');
+    }
+}
+
+class FEEngineer extends Human {
+    constructor(name,age,sex,hobby,skill,salary) {
+        //必须在this前添加super()
+        super(name,age,sex,hobby);
+        this.skill = skill;
+        this.salary = salary;
+    }
+
+    //可以重写父类的方法
+    eat(){
+        console.log('程序员也爱吃东西，吧唧吧唧！');
+    }
+}
+
+var engineer = new FEEngineer(
+    '张三',
+    13,
+    '男',
+    '敲代码',
+    ['吃饭','睡觉','敲代码'],
+    999
+);
+
+console.log(engineer);
+engineer.eat();  //程序员也爱吃东西，吧唧吧唧！
+</script>
+</body>
+</html>

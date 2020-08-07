@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+//在es5中模拟类
+
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+console.log(new Person('张三',11));
+
+//new关键字调用函数时，生成新对象的过程
+
+//1.创建一个空对象
+//2.把构造函数的prototype属性 作为空对象的原型
+//3.this赋值为这个空对象
+//4.执行函数
+//5.如果函数没有返回值 则返回this
+
+//模拟实现类
+function Constructor(fn,args){
+    var _this = Object.create(fn.prototype);
+    var res = fn.apply(_this,args);
+    return res ?  res : _this;
+}
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+Person.prototype.say = function(){
+    console.log(`我的名字是${this.name}`);
+}
+var person =  Constructor(Person,['张',12]);
+
+console.log(person);
+person.say();
+</script>
+</body>
+</html>

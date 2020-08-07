@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+//作为父类的构造函数调用
+//作为对象直接调用
+
+//在非静态方法中访问supper --> 父类原型
+//在静态方法中访问supper  --> 父类
+
+//在调用supper 父类的this，始终是子类的this
+
+class Human{
+    constructor(name,age,sex,hobby){
+         this.name = name;
+         this.age = age;
+         this.sex = sex;
+         this.hobby = hobby;
+    }
+    desc(){
+        const {name,age,sex,hobby} = this;
+        console.log(`我是${name},年龄${age}`);
+    }
+    eat(){
+        console.log('吧唧吧唧');
+    }
+}
+
+Human.num = 999;
+
+class FEEngineer extends Human {
+    constructor(name,age,sex,hobby,skill,salary) {
+        //必须在this前添加super()
+        super(name,age,sex,hobby);
+        this.skill = skill;
+        this.salary = salary;
+    }
+
+    //可以重写父类的方法
+    eat(){
+        //在非静态方法中访问supper --> 父类原型
+        //可以通过super调用父类方法
+        super.eat();  
+        super.desc();  
+        console.log('程序员也爱吃东西，吧唧吧唧！');
+    }
+    static test(){
+        console.log(super.num); //999
+        console.log(super.name); //Human
+    }
+}
+
+var engineer = new FEEngineer(
+    '张三',
+    13,
+    '男',
+    '敲代码',
+    ['吃饭','睡觉','敲代码'],
+    999
+);
+
+console.log(engineer);
+engineer.eat();  //程序员也爱吃东西，吧唧吧唧！
+
+FEEngineer.test(); //999
+</script>
+</body>
+</html>

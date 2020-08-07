@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+<script>
+//静态属性和方法
+//不会被实例所拥有的属性和方法 只是类自身拥有
+//只能通过类调用
+
+//static
+class Car {
+    constructor() {
+        Car.totalCar += 1;  //静态属性 用于记录创建了多少实例
+        this.speed = 0;
+    }
+
+    speedUp(){
+        this.speedUp += 1;
+    }
+    //静态方法
+    static repair(car){
+        console.log('我是修车的！');
+        console.log('我正在修'+car);
+    }
+}
+//静态属性
+// Car.属性名 = 属性值;
+// 可以通过静态属性记录创建了多少实例
+Car.totalCar = 0;
+new Car();
+new Car();
+new Car();
+new Car();
+new Car();
+console.log(Car.totalCar); //5
+
+
+
+//通过构造函数访问
+Car.repair('1号车')
+
+
+//利用静态方法在一个person构造函数中修改有另一个programmer构造函数生成的实例下的属性
+
+class Person{
+    static changeProgrammer(programmer){
+        programmer.haveGirlFriend = true;
+        programmer.haveHair = true;
+    }
+}
+
+class Programmer{
+    constructor(){
+        this.haveGirlFriend = false,
+        this.haveHair = false
+    }
+}
+
+let programmer = new Programmer();
+console.log(programmer.haveGirlFriend,programmer.haveHair); //false false
+Person.changeProgrammer(programmer);
+console.log(programmer.haveGirlFriend,programmer.haveHair); //true true
+
+</script>
+</body>
+</html>

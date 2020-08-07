@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+//OOP -面向对象开发
+//核心 - 封装
+//自执行函数 - 避免污染全局环境
+
+//多态 ： 同一个接口 不同的表现
+//继承 ： 子类获得父类的属性或方法
+//封装 ： 讲对象抽象
+
+//es6中的类
+class Car {
+    //构造函数 constructor
+    constructor(...args){
+        console.log('开始构造...');
+        this.wheel = args[0];
+        this.color = args[1];
+        this.width = args[2];
+        this.height = args[3];
+        this.speed = 0;
+    }
+    //方法
+    speedUp(){
+        this.speed += 1;
+    }
+}
+
+//实例化
+var newCar = new Car(3,'red',10,20);
+newCar.speedUp();
+console.log(newCar.speed);
+newCar.speedUp();
+console.log(newCar.speed);
+
+
+</script>
+</body>
+</html>
