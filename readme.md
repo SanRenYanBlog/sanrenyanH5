@@ -1,4 +1,4 @@
-## 项目说明文档
+# 项目说明文档
 ## git init
 - 把当前项目初始化为版本库
 - 当前目录下会生成一个隐藏文件.git
@@ -67,10 +67,11 @@
 - 查看分支
 - 当前分支前面有*
 
-## git branch [分支名]
+## git branch [branch]
 - 创建分支
 
-## git checkout [分支名]
+## git checkout [branch]
 - 切换分支
 
-# git merge [branch]
+## git merge [branch]
+- 合并分支
