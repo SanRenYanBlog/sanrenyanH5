@@ -46,6 +46,13 @@
 
 # 远程仓库
 
-##remote add origin 仓库地址
+## remote add origin 仓库地址
 1. 把本地仓库与远程仓库关联
 
+## git remote -v
+1. 查看本地仓库关联的远程仓库地址
+
+## git push -u origin master
+1. git push 本地仓库提交到远程仓库
+2. -u origin master 设置默认远程仓库或分支
+3. 执行完这个命令之后，以后可以直接git push提交到远程仓库的master分支
