@@ -37,7 +37,7 @@
 
 # 远程仓库
 
-## remote add origin 仓库地址
+## git remote add origin 仓库地址
 - 把本地仓库与远程仓库关联
 
 ## git remote -v
@@ -84,3 +84,6 @@
 
 ---
 
+## 忽略列表
+- 手动创建文件.gitignore
+- 把不需要的文件/目录添加到忽略列表
