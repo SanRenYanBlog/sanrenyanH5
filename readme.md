@@ -75,3 +75,6 @@
 
 ## git merge [branch]
 - 合并分支
+
+## git branch -d [branch]
+- 删除分支
