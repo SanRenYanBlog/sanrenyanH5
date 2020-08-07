@@ -72,3 +72,5 @@
 
 ## git checkout [分支名]
 - 切换分支
+
+# git merge 
